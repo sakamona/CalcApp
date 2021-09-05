@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //SnackBar入れたい
 
         button1.setOnClickListener(this)
         button2.setOnClickListener(this)
@@ -20,8 +21,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         val intent = Intent(this, SecondActivity::class.java)
-        val num1 = num1.text
-        val num2 = num2.text
+        val num1 = num1.text.toString().toDouble()
+        val num2 = num2.text.toString().toDouble()
         intent.putExtra("VALUE1", num1)
         intent.putExtra("VALUE2", num2)
         when (v.id) {
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.button3 -> intent.putExtra("VALUE3", 3)
             R.id.button4 -> intent.putExtra("VALUE3", 4)
         }
-        Log.d("testlog", num1.toString())
+        //Log.d("testlog", num1.toString())
         startActivity(intent)
     }
 }
